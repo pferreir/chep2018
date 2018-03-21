@@ -1,49 +1,161 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+        <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/indico.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+            link = document.createElement( 'link' );
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+            if (window.location.search.match( /print-pdf/gi )) {
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href =  'css/print/indico.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                <section data-transition="zoom">
+                    <img src="img/indico.png" style="width:300px; margin-right: 20px;">
+                    <h4>Open Source Event Management System</h4>
+                    <ul class="authors">
+                        <li>Pedro Ferreira (CERN) • <strong>@pferreir</strong></li>
+                    </ul>
+                    <div class="slide-info">
+                        <span class="location">EuroPython 2018 - Edinburgh</span>
+                        <date>July 2018</date>
+                    </div>
+                </section>
+                <section>
+                    <section>
+                        <h2>CERN</h2>
+                        <img src="img/cern_logo.png" style="width: 500px;">
+                    </section>
+                    <section data-background-image="img/cern_aerial.jpg" data->
+                        <ul>
+                            <li>Based in Geneva 🇨🇭</li>
+                            <li>22 member states</li>
+                            <li>3500 employees + 15000 associates</li>
+                            <li>Bilingual 🇬🇧🇫🇷</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="img/lhc.jpg">
+                    </section>
+                    <section>
+                        <img src="img/discoveries.png">
+                        <a href="https://en.wikipedia.org/wiki/CERN#Scientific_achievements">https://en.wikipedia.org/wiki/CERN#Scientific_achievements</a>
+                    </section>
+                    <section>
+                        <img src="img/berners-lee.jpg">
+                    </section>
+                    <section>
+                        <h2>Open Source</h2>
+                        <ul>
+                            <li><strong>Data Analysis</strong>: ROOT</li>
+                            <li><strong>Simulation</strong>: Geant4, Fluka</li>
+                            <li><strong>Filesystems</strong>: CERN VM-FS, EOS</li>
+                            <li><strong>Electronic Design</strong>: KiCad</li>
+                            <li><strong>Content Management</strong>: Invenio, <mark>Indico</mark></li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <img src="img/indico.png" style="width:300px; margin-right: 20px;">
+                    </section>
+                    <section>
+                        <ul>
+                            <li>Event management system</li>
+                            <li>Digital repository</li>
+                            <li>Small meetings 🠒 Big conferences</li>
+                            <li>Started in 2004</li>
+                            <li><fragment><strong>@CERN:</strong> > 500.000 events</fragment></li>
+                        </ul>
+                    </section>
+                    <section data-background-image="img/map.png">
+                    </section>
+                    <section>
+                        <img src="img/timeline.png">
+                    </section>
+                    <section>
+                        <div style="display: flex; align-items: center; padding: 20px; justify-content: space-between;">
+                            <img style="max-width: 30%;" src="img/python.png">
+                            <img style="max-width: 30%; padding: 20px;" src="img/flask.svg">
+                            <img style="width: 30%;" src="img/sqlalchemy.jpg">
+                        </div>
+                    </section>
+                    <section>
+                        <img src="img/preserve.png">
+                    </section>
+                    <section>
+                        <img src="img/europython2008.png">
+                    </section>
+                    <section>
+                        <img src="img/europython2010.png">
+                    </section>
+                    <section>
+                        <img src="img/europython2006.png">
+                    </section>
+                    <section>
+                        <img src="img/screenshot_1.png">
+                        <a href="https://indico.cern.ch/event/66230/">https://indico.cern.ch/event/66230/</a>
+                    </section>
+                    <section>
+                        <img src="img/screenshot_2.png">
+                        <a href="https://indico.cern.ch/event/197461/">https://indico.cern.ch/event/197461/</a>
+                    </section>
+                    <section>
+                        <img src="img/screenshot_3.png">
+                    </section>
+                    <section>
+                        <ul>
+                            <li>@getindico</li>
+                            <li><a href="https://github.com/indico/indico">https://github.com/indico/indico</a></li>
+                            <li><a href="https://getindico.io">https://getindico.io</a></li>
+                            <li><a href="https://sandbox.getindico.io">https://sandbox.getindico.io</a></li>
+                        </ul>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/chart/Chart.min.js' },
+                    { src: 'plugin/chart/csv2chart.js' }
+               ],
+                history: true
+            });
+        </script>
+    </body>
 </html>

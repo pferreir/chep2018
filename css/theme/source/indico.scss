@@ -1,0 +1,148 @@
+/**
+ * Blood theme for reveal.js
+ * Author: Walther http://github.com/Walther
+ *
+ * Designed to be used with highlight.js theme
+ * "monokai_sublime.css" available from
+ * https://github.com/isagalaev/highlight.js/
+ *
+ * For other themes, change $codeBackground accordingly.
+ *
+ */
+
+ // Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+
+@import url(https://fonts.googleapis.com/css?family=Maven+Pro);
+
+// Colors used in the theme
+$dark-blue: #005272;
+$light-blue: #00a4e4;
+
+$white: #fff;
+$codeBackground: #23241f;
+
+$backgroundColor: $white;
+
+// Main text
+$mainFont: 'Maven Pro', 'sans-serif';
+$mainColor: #444;
+$additionalInfoColor: #777;
+
+// Headings
+$headingFont: 'Maven Pro', 'sans-serif';
+$headingTextShadow: 2px 2px 2px $white;
+
+// Links
+$linkColor: $dark-blue;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Text selection
+$selectionBackgroundColor: $dark-blue;
+$selectionColor: #fff;
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+html.darken-bg .slide-background.present::after {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.reveal ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+}
+
+.reveal p {
+    font-weight: 300;
+    text-shadow: 1px 1px $white;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-weight: 700;
+    color: $dark-blue;
+    text-transform: none;
+    text-shadow: none;
+}
+
+.reveal h3 {
+    color: $mainColor;
+}
+
+.reveal h4 {
+    color: $light-blue;
+}
+
+.reveal section.dark-bg {
+    color: $white;
+    h1, h2, h4, h5 {
+        color: $white;
+    }
+    h3 {
+        color: $light-blue;
+    }
+}
+
+
+.reveal p code {
+    background-color: $codeBackground;
+    display: inline-block;
+    border-radius: 7px;
+}
+
+.reveal small code {
+    vertical-align: baseline;
+}
+
+.reveal section img {
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+.reveal ul.authors {
+    display: block;
+    list-style-type: none;
+    margin: 2em 0 0 0;
+    text-align: center;
+    font-size: 0.6em;
+
+    li {
+        display: inline;
+    }
+
+    li + li:before {
+        content: ', ';
+    }
+}
+
+.reveal section {
+    position: relative;
+}
+
+.reveal .slide-info {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -50%;
+    width: 100%;
+    font-size: 0.8em;
+    color: $additionalInfoColor;
+}

@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="https://rawgit.com/andrewgiessel/leafletstuff/master/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+
+
+
+
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_6817b2e5f6fc4565b732df441ba41a77" style="width: 100%; height: 100%"></div>
+
+   <script>
+
+
+
+      var base_tile = L.tileLayer('https://{s}.tiles.mapbox.com/v3/mapbox.world-bright/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map tiles by <a href="http://www.mapbox.com/m">Mapbox</a> Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+
+
+      /*
+      addition of the tile layers
+      */
+
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_6817b2e5f6fc4565b732df441ba41a77', {
+                                       center:[0, 0],
+                                       zoom: 1,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      /*
+      addition of the image layers
+      */
+
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+
+
+
+      var circle_1 = L.circle([45.6433, 13.7903], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_1.bindPopup("https://indico.ict.inaf.it/");
+      circle_1._popup.options.maxWidth = 300;
+      map.addLayer(circle_1)
+
+      var circle_2 = L.circle([-23.5475, -46.6361], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_2.bindPopup("https://143.107.180.38/indico/index.py");
+      circle_2._popup.options.maxWidth = 300;
+      map.addLayer(circle_2)
+
+      var circle_3 = L.circle([-37.9167, 145.1333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_3.bindPopup("https://accelerators.org.au/indico/index.py");
+      circle_3._popup.options.maxWidth = 300;
+      map.addLayer(circle_3)
+
+      var circle_4 = L.circle([38.0, -97.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_4.bindPopup("https://events.aflia.net/");
+      circle_4._popup.options.maxWidth = 300;
+      map.addLayer(circle_4)
+
+      var circle_5 = L.circle([41.3888, 2.159], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_5.bindPopup("http://indico.cells.es/indico/index.py");
+      circle_5._popup.options.maxWidth = 300;
+      map.addLayer(circle_5)
+
+      var circle_6 = L.circle([59.3333, 18.05], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_6.bindPopup("http://agenda.albanova.se/index.py");
+      circle_6._popup.options.maxWidth = 300;
+      map.addLayer(circle_6)
+
+      var circle_7 = L.circle([42.7, 23.3333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_7.bindPopup("https://srv1.aubg-cos.org/indico/index.py");
+      circle_7._popup.options.maxWidth = 300;
+      map.addLayer(circle_7)
+
+      var circle_8 = L.circle([41.6815, -87.9706], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_8.bindPopup("https://indico.hep.anl.gov/indico/");
+      circle_8._popup.options.maxWidth = 300;
+      map.addLayer(circle_8)
+
+      var circle_9 = L.circle([25.0392, 121.525], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_9.bindPopup("http://indico3.twgrid.org/indico/index.py");
+      circle_9._popup.options.maxWidth = 300;
+      map.addLayer(circle_9)
+
+      var circle_10 = L.circle([-37.9167, 145.1333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_10.bindPopup("http://events.synchrotron.org.au/");
+      circle_10._popup.options.maxWidth = 300;
+      map.addLayer(circle_10)
+
+      var circle_11 = L.circle([30.4425, -84.2986], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_11.bindPopup("https://baryons2016.physics.fsu.edu/indico/");
+      circle_11._popup.options.maxWidth = 300;
+      map.addLayer(circle_11)
+
+      var circle_12 = L.circle([44.8186, 20.4681], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_12.bindPopup("http://indico.ipb.ac.rs/index.py");
+      circle_12._popup.options.maxWidth = 300;
+      map.addLayer(circle_12)
+
+      var circle_13 = L.circle([52.5167, 13.4], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_13.bindPopup("http://www.bessy.de/indico/");
+      circle_13._popup.options.maxWidth = 300;
+      map.addLayer(circle_13)
+
+      var circle_14 = L.circle([-34.6033, -58.3817], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_14.bindPopup("http://www.bijuar.edu.ar/indico/index.py");
+      circle_14._popup.options.maxWidth = 300;
+      map.addLayer(circle_14)
+
+      var circle_15 = L.circle([55.0411, 82.9344], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_15.bindPopup("http://indico.inp.nsk.su/");
+      circle_15._popup.options.maxWidth = 300;
+      map.addLayer(circle_15)
+
+      var circle_16 = L.circle([1.0, 32.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_16.bindPopup("https://conferences.bsu.ac.ug");
+      circle_16._popup.options.maxWidth = 300;
+      map.addLayer(circle_16)
+
+      var circle_17 = L.circle([40.8695, -72.8868], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_17.bindPopup("https://indico.bnl.gov/index.py");
+      circle_17._popup.options.maxWidth = 300;
+      map.addLayer(circle_17)
+
+      var circle_18 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_18.bindPopup("https://indico.calet.jp/");
+      circle_18._popup.options.maxWidth = 300;
+      map.addLayer(circle_18)
+
+      var circle_19 = L.circle([45.7667, 4.8833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_19.bindPopup("https://conferences-test.campus-condorcet.fr");
+      circle_19._popup.options.maxWidth = 300;
+      map.addLayer(circle_19)
+
+      var circle_20 = L.circle([42.3451, -71.0993], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_20.bindPopup("https://ccp2014.bu.edu/indico/index.py");
+      circle_20._popup.options.maxWidth = 300;
+      map.addLayer(circle_20)
+
+      var circle_21 = L.circle([40.8563, 14.2464], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_21.bindPopup("http://conferences.ceinge.unina.it/index.py");
+      circle_21._popup.options.maxWidth = 300;
+      map.addLayer(circle_21)
+
+      var circle_22 = L.circle([42.38, -71.1329], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_22.bindPopup("http://conf.adsabs.harvard.edu/indico/");
+      circle_22._popup.options.maxWidth = 300;
+      map.addLayer(circle_22)
+
+      var circle_23 = L.circle([50.8833, 4.7], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_23.bindPopup("http://agenda.irmp.ucl.ac.be");
+      circle_23._popup.options.maxWidth = 300;
+      map.addLayer(circle_23)
+
+      var circle_24 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_24.bindPopup("http://indico.cns.s.u-tokyo.ac.jp/index.py");
+      circle_24._popup.options.maxWidth = 300;
+      map.addLayer(circle_24)
+
+      var circle_25 = L.circle([45.4672, 7.8762], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_25.bindPopup("https://agenda.centrofermi.it/indico/");
+      circle_25._popup.options.maxWidth = 300;
+      map.addLayer(circle_25)
+
+      var circle_26 = L.circle([46.2324, 6.0502], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_26.bindPopup("http://indico.cern.ch");
+      circle_26._popup.options.maxWidth = 300;
+      map.addLayer(circle_26)
+
+      var circle_27 = L.circle([33.9681, -84.2304], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_27.bindPopup("https://indico.challengepastorsconference.org/");
+      circle_27._popup.options.maxWidth = 300;
+      map.addLayer(circle_27)
+
+      var circle_28 = L.circle([31.8639, 117.2808], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_28.bindPopup("http://cicpi.ustc.edu.cn/indico/index.py");
+      circle_28._popup.options.maxWidth = 300;
+      map.addLayer(circle_28)
+
+      var circle_29 = L.circle([19.4342, -99.1386], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_29.bindPopup("http://indico.fis.cinvestav.mx");
+      circle_29._popup.options.maxWidth = 300;
+      map.addLayer(circle_29)
+
+      var circle_30 = L.circle([44.4938, 11.3387], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_30.bindPopup("https://agenda-igi.cnaf.infn.it/index.py");
+      circle_30._popup.options.maxWidth = 300;
+      map.addLayer(circle_30)
+
+      var circle_31 = L.circle([45.7667, 4.8833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_31.bindPopup("https://indico.math.cnrs.fr/index.py");
+      circle_31._popup.options.maxWidth = 300;
+      map.addLayer(circle_31)
+
+      var circle_32 = L.circle([39.5743, 2.6552], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_32.bindPopup("https://finalconference.climatelinc.eu/event/0/");
+      circle_32._popup.options.maxWidth = 300;
+      map.addLayer(circle_32)
+
+      var circle_33 = L.circle([42.4485, -76.4804], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_33.bindPopup("https://indico.classe.cornell.edu/");
+      circle_33._popup.options.maxWidth = 300;
+      map.addLayer(circle_33)
+
+      var circle_34 = L.circle([55.6761, 12.5683], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_34.bindPopup("http://indico.cp3-origins.dk/");
+      circle_34._popup.options.maxWidth = 300;
+      map.addLayer(circle_34)
+
+      var circle_35 = L.circle([49.4167, 8.7], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_35.bindPopup("https://indico.cta-observatory.org/");
+      circle_35._popup.options.maxWidth = 300;
+      map.addLayer(circle_35)
+
+      var circle_36 = L.circle([49.8719, 8.6484], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_36.bindPopup("http://lwapsr.ikp.physik.tu-darmstadt.de/indico/index.py");
+      circle_36._popup.options.maxWidth = 300;
+      map.addLayer(circle_36)
+
+      var circle_37 = L.circle([45.399, -75.6871], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_37.bindPopup("https://indico.physics.carleton.ca/");
+      circle_37._popup.options.maxWidth = 300;
+      map.addLayer(circle_37)
+
+      var circle_38 = L.circle([53.55, 10.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_38.bindPopup("http://indico.desy.de/");
+      circle_38._popup.options.maxWidth = 300;
+      map.addLayer(circle_38)
+
+      var circle_39 = L.circle([51.0, 9.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_39.bindPopup("https://indico.dkfz.de/");
+      circle_39._popup.options.maxWidth = 300;
+      map.addLayer(circle_39)
+
+      var circle_40 = L.circle([36.4151, -80.4773], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_40.bindPopup("https://indico.dns-oarc.net/");
+      circle_40._popup.options.maxWidth = 300;
+      map.addLayer(circle_40)
+
+      var circle_41 = L.circle([46.1956, 6.1481], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_41.bindPopup("https://gridvm5.unige.ch");
+      circle_41._popup.options.maxWidth = 300;
+      map.addLayer(circle_41)
+
+      var circle_42 = L.circle([55.6761, 12.5683], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_42.bindPopup("http://indico.conferences.dtu.dk/index.py");
+      circle_42._popup.options.maxWidth = 300;
+      map.addLayer(circle_42)
+
+      var circle_43 = L.circle([59.3294, 18.0686], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_43.bindPopup("http://indicotest.eblida.org/index.py");
+      circle_43._popup.options.maxWidth = 300;
+      map.addLayer(circle_43)
+
+      var circle_44 = L.circle([49.2, 16.6333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_44.bindPopup("https://www.egi.eu/indico/index.py");
+      circle_44._popup.options.maxWidth = 300;
+      map.addLayer(circle_44)
+
+      var circle_45 = L.circle([43.6843, 10.504], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_45.bindPopup("https://events.ego-gw.it/indico/");
+      circle_45._popup.options.maxWidth = 300;
+      map.addLayer(circle_45)
+
+      var circle_46 = L.circle([51.0, 9.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_46.bindPopup("https://events.eitep.de/");
+      circle_46._popup.options.maxWidth = 300;
+      map.addLayer(circle_46)
+
+      var circle_47 = L.circle([50.0833, 14.4167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_47.bindPopup("https://research.eli-beams.eu/indico");
+      circle_47._popup.options.maxWidth = 300;
+      map.addLayer(circle_47)
+
+      var circle_48 = L.circle([44.35, 26.0333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_48.bindPopup("http://www.eli-np.ro/indico/index.py");
+      circle_48._popup.options.maxWidth = 300;
+      map.addLayer(circle_48)
+
+      var circle_49 = L.circle([42.8333, 12.8333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_49.bindPopup("https://agenda.enea.it/");
+      circle_49._popup.options.maxWidth = 300;
+      map.addLayer(circle_49)
+
+      var circle_50 = L.circle([12.9833, 77.5833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_50.bindPopup("http://cts.iisc.ernet.in/indico/index.py");
+      circle_50._popup.options.maxWidth = 300;
+      map.addLayer(circle_50)
+
+      var circle_51 = L.circle([33.4485, -79.5409], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_51.bindPopup("http://indico.esa.int/");
+      circle_51._popup.options.maxWidth = 300;
+      map.addLayer(circle_51)
+
+      var circle_52 = L.circle([39.9289, 116.3883], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_52.bindPopup("http://esic.ciae.ac.cn/indico/index.py");
+      circle_52._popup.options.maxWidth = 300;
+      map.addLayer(circle_52)
+
+      var circle_53 = L.circle([55.7, 13.1833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_53.bindPopup("https://indico03.esss.lu.se/indico/");
+      circle_53._popup.options.maxWidth = 300;
+      map.addLayer(circle_53)
+
+      var circle_54 = L.circle([47.3667, 8.55], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_54.bindPopup("https://indico.phys.ethz.ch/index.py");
+      circle_54._popup.options.maxWidth = 300;
+      map.addLayer(circle_54)
+
+      var circle_55 = L.circle([40.4, -3.6833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_55.bindPopup("http://indico.eu-eela.eu/");
+      circle_55._popup.options.maxWidth = 300;
+      map.addLayer(circle_55)
+
+      var circle_56 = L.circle([49.2, 16.6333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_56.bindPopup("http://web.eu-egi.eu/MaKaC/index.py");
+      circle_56._popup.options.maxWidth = 300;
+      map.addLayer(circle_56)
+
+      var circle_57 = L.circle([-34.9314, -57.9489], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_57.bindPopup("https://indico.fcaglp.unlp.edu.ar");
+      circle_57._popup.options.maxWidth = 300;
+      map.addLayer(circle_57)
+
+      var circle_58 = L.circle([50.0833, 14.4667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_58.bindPopup("http://indico.fjfi.cvut.cz/index.py");
+      circle_58._popup.options.maxWidth = 300;
+      map.addLayer(circle_58)
+
+      var circle_59 = L.circle([41.8392, -88.3612], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_59.bindPopup("http://indico.fnal.gov/index.py");
+      circle_59._popup.options.maxWidth = 300;
+      map.addLayer(circle_59)
+
+      var circle_60 = L.circle([48.2499, 11.6309], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_60.bindPopup("https://indico.frm2.tum.de/");
+      circle_60._popup.options.maxWidth = 300;
+      map.addLayer(circle_60)
+
+      var circle_61 = L.circle([30.4425, -84.2986], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_61.bindPopup("http://hadron.physics.fsu.edu/MaKaC/index.py");
+      circle_61._popup.options.maxWidth = 300;
+      map.addLayer(circle_61)
+
+      var circle_62 = L.circle([52.25, 21.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_62.bindPopup("http://indico.fuw.edu.pl/index.py");
+      circle_62._popup.options.maxWidth = 300;
+      map.addLayer(circle_62)
+
+      var circle_63 = L.circle([42.8333, 12.8333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_63.bindPopup("https://agenda.garr.it/");
+      circle_63._popup.options.maxWidth = 300;
+      map.addLayer(circle_63)
+
+      var circle_64 = L.circle([45.7485, 4.8467], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_64.bindPopup("https://colloques.gate.cnrs.fr/index.py");
+      circle_64._popup.options.maxWidth = 300;
+      map.addLayer(circle_64)
+
+      var circle_65 = L.circle([54.3333, 10.1333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_65.bindPopup("https://conferences.geomar.de/index.py");
+      circle_65._popup.options.maxWidth = 300;
+      map.addLayer(circle_65)
+
+      var circle_66 = L.circle([42.9864, -78.7279], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_66.bindPopup("http://www.geworkshop.org/indico/");
+      circle_66._popup.options.maxWidth = 300;
+      map.addLayer(circle_66)
+
+      var circle_67 = L.circle([40.4, -3.6833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_67.bindPopup("http://indico.gisela-grid.eu/");
+      circle_67._popup.options.maxWidth = 300;
+      map.addLayer(circle_67)
+
+      var circle_68 = L.circle([48.86, 2.35], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_68.bindPopup("https://www.gpul.org/indico/index.py");
+      circle_68._popup.options.maxWidth = 300;
+      map.addLayer(circle_68)
+
+      var circle_69 = L.circle([20.0, 77.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_69.bindPopup("https://grapes-3.tifr.res.in/indico/index.py");
+      circle_69._popup.options.maxWidth = 300;
+      map.addLayer(circle_69)
+
+      var circle_70 = L.circle([37.9667, 23.7167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_70.bindPopup("http://events.hpc.grnet.gr/");
+      circle_70._popup.options.maxWidth = 300;
+      map.addLayer(circle_70)
+
+      var circle_71 = L.circle([49.8719, 8.6484], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_71.bindPopup("https://indico.gsi.de/index.py");
+      circle_71._popup.options.maxWidth = 300;
+      map.addLayer(circle_71)
+
+      var circle_72 = L.circle([35.4056, 127.8361], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_72.bindPopup("http://hep.hanyang.ac.kr/indico/about.py");
+      circle_72._popup.options.maxWidth = 300;
+      map.addLayer(circle_72)
+
+      var circle_73 = L.circle([52.5167, 13.4], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_73.bindPopup("https://indico.helmholtz-berlin.de/");
+      circle_73._popup.options.maxWidth = 300;
+      map.addLayer(circle_73)
+
+      var circle_74 = L.circle([31.8639, 117.2808], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_74.bindPopup("https://hep.ustc.edu.cn/indico/");
+      circle_74._popup.options.maxWidth = 300;
+      map.addLayer(circle_74)
+
+      var circle_75 = L.circle([48.2, 16.3667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_75.bindPopup("http://indico.hephy.oeaw.ac.at/");
+      circle_75._popup.options.maxWidth = 300;
+      map.addLayer(circle_75)
+
+      var circle_76 = L.circle([8.0, -66.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_76.bindPopup("https://hcudamp.gob.ve/indico");
+      circle_76._popup.options.maxWidth = 300;
+      map.addLayer(circle_76)
+
+      var circle_77 = L.circle([48.2, 16.3667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_77.bindPopup("https://conferences.iaea.org/indico/about.py");
+      circle_77._popup.options.maxWidth = 300;
+      map.addLayer(circle_77)
+
+      var circle_78 = L.circle([48.86, 2.35], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_78.bindPopup("http://indico.ibgc.cnrs.fr/index.py");
+      circle_78._popup.options.maxWidth = 300;
+      map.addLayer(circle_78)
+
+      var circle_79 = L.circle([36.3214, 127.4197], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_79.bindPopup("https://indico.ibs.re.kr/");
+      circle_79._popup.options.maxWidth = 300;
+      map.addLayer(circle_79)
+
+      var circle_80 = L.circle([35.685, 139.7514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_80.bindPopup("https://www.icrr.u-tokyo.ac.jp/indico/index.py");
+      circle_80._popup.options.maxWidth = 300;
+      map.addLayer(circle_80)
+
+      var circle_81 = L.circle([43.0761, -89.4104], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_81.bindPopup("https://events.icecube.wisc.edu/index.py");
+      circle_81._popup.options.maxWidth = 300;
+      map.addLayer(circle_81)
+
+      var circle_82 = L.circle([45.6433, 13.7903], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_82.bindPopup("http://indico.ictp.it/");
+      circle_82._popup.options.maxWidth = 300;
+      map.addLayer(circle_82)
+
+      var circle_83 = L.circle([45.7494, 21.2272], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_83.bindPopup("http://indico.ieat.ro/");
+      circle_83._popup.options.maxWidth = 300;
+      map.addLayer(circle_83)
+
+      var circle_84 = L.circle([40.4, -3.6833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_84.bindPopup("http://indico.ifae.es/index.py");
+      circle_84._popup.options.maxWidth = 300;
+      map.addLayer(circle_84)
+
+      var circle_85 = L.circle([40.4, -3.6833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_85.bindPopup("http://indico.ifca.es/");
+      circle_85._popup.options.maxWidth = 300;
+      map.addLayer(circle_85)
+
+      var circle_86 = L.circle([39.4698, -0.3774], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_86.bindPopup("http://indico.ific.uv.es/indico/index.py");
+      circle_86._popup.options.maxWidth = 300;
+      map.addLayer(circle_86)
+
+      var circle_87 = L.circle([44.35, 26.0333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_87.bindPopup("http://cc.ifin.ro/indico/index.py");
+      circle_87._popup.options.maxWidth = 300;
+      map.addLayer(circle_87)
+
+      var circle_88 = L.circle([44.35, 26.0333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_88.bindPopup("http://www.nipne.ro/indico/index.py");
+      circle_88._popup.options.maxWidth = 300;
+      map.addLayer(circle_88)
+
+      var circle_89 = L.circle([50.0833, 19.9167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_89.bindPopup("http://indico.ifj.edu.pl/indico/index.py");
+      circle_89._popup.options.maxWidth = 300;
+      map.addLayer(circle_89)
+
+      var circle_90 = L.circle([39.9289, 116.3883], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_90.bindPopup("http://indico.ihep.ac.cn/");
+      circle_90._popup.options.maxWidth = 300;
+      map.addLayer(circle_90)
+
+      var circle_91 = L.circle([46.0511, 14.5051], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_91.bindPopup("http://conferences.imfm.si/");
+      circle_91._popup.options.maxWidth = 300;
+      map.addLayer(circle_91)
+
+      var circle_92 = L.circle([45.7667, 4.8833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_92.bindPopup("http://indico.in2p3.fr");
+      circle_92._popup.options.maxWidth = 300;
+      map.addLayer(circle_92)
+
+      var circle_93 = L.circle([40.0, 45.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_93.bindPopup("http://inarmera-ict.eu/indico/index.py");
+      circle_93._popup.options.maxWidth = 300;
+      map.addLayer(circle_93)
+
+      var circle_94 = L.circle([42.8333, 12.8333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_94.bindPopup("https://agenda.indigo-datacloud.eu/");
+      circle_94._popup.options.maxWidth = 300;
+      map.addLayer(circle_94)
+
+      var circle_95 = L.circle([41.8212, 12.6629], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_95.bindPopup("http://agenda.infn.it/index.py");
+      circle_95._popup.options.maxWidth = 300;
+      map.addLayer(circle_95)
+
+      var circle_96 = L.circle([42.8333, 12.8333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_96.bindPopup("http://agenda.ct.infn.it/index.py");
+      circle_96._popup.options.maxWidth = 300;
+      map.addLayer(circle_96)
+
+      var circle_97 = L.circle([41.1115, 16.8554], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_97.bindPopup("http://www.ba.infn.it/indico/index.py");
+      circle_97._popup.options.maxWidth = 300;
+      map.addLayer(circle_97)
+
+      var circle_98 = L.circle([44.4938, 11.3387], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_98.bindPopup("http://www.bo.infn.it/MaKaC/");
+      circle_98._popup.options.maxWidth = 300;
+      map.addLayer(circle_98)
+
+      var circle_99 = L.circle([37.57, 126.98], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_99.bindPopup("https://n-ext.inha.ac.kr/indico/");
+      circle_99._popup.options.maxWidth = 300;
+      map.addLayer(circle_99)
+
+      var circle_100 = L.circle([20.0, 77.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_100.bindPopup("http://indico.ino.tifr.res.in/indico/index.py");
+      circle_100._popup.options.maxWidth = 300;
+      map.addLayer(circle_100)
+
+      var circle_101 = L.circle([46.0, 15.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_101.bindPopup("http://indico.ijs.si/index.py");
+      circle_101._popup.options.maxWidth = 300;
+      map.addLayer(circle_101)
+
+      var circle_102 = L.circle([55.75, 37.6166], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_102.bindPopup("https://q2018.inr.ac.ru/");
+      circle_102._popup.options.maxWidth = 300;
+      map.addLayer(circle_102)
+
+      var circle_103 = L.circle([42.7, 23.3333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_103.bindPopup("https://indico.ipp.acad.bg/indico/");
+      circle_103._popup.options.maxWidth = 300;
+      map.addLayer(circle_103)
+
+      var circle_104 = L.circle([-29.0, 24.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_104.bindPopup("https://events.integrationsystems.co.za/");
+      circle_104._popup.options.maxWidth = 300;
+      map.addLayer(circle_104)
+
+      var circle_105 = L.circle([46.2324, 6.0502], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_105.bindPopup("http://ilcagenda.linearcollider.org/");
+      circle_105._popup.options.maxWidth = 300;
+      map.addLayer(circle_105)
+
+      var circle_106 = L.circle([52.5167, 13.4], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_106.bindPopup("https://events.interpore.org/");
+      circle_106._popup.options.maxWidth = 300;
+      map.addLayer(circle_106)
+
+      var circle_107 = L.circle([54.7684, -1.5631], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_107.bindPopup("http://conference.ippp.dur.ac.uk");
+      circle_107._popup.options.maxWidth = 300;
+      map.addLayer(circle_107)
+
+      var circle_108 = L.circle([35.685, 139.7514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_108.bindPopup("http://indico.ipmu.jp/indico/index.py");
+      circle_108._popup.options.maxWidth = 300;
+      map.addLayer(circle_108)
+
+      var circle_109 = L.circle([44.4938, 11.3387], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_109.bindPopup("https://indico.ced.inaf.it/");
+      circle_109._popup.options.maxWidth = 300;
+      map.addLayer(circle_109)
+
+      var circle_110 = L.circle([47.4925, 19.0514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_110.bindPopup("https://iriservices.nik.uni-obuda.hu/indico/index.py");
+      circle_110._popup.options.maxWidth = 300;
+      map.addLayer(circle_110)
+
+      var circle_111 = L.circle([-34.0475, 18.4525], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_111.bindPopup("http://indico.tlabs.ac.za/");
+      circle_111._popup.options.maxWidth = 300;
+      map.addLayer(circle_111)
+
+      var circle_112 = L.circle([28.6667, 77.2167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_112.bindPopup("http://www.iuac.res.in/indico/index.py");
+      circle_112._popup.options.maxWidth = 300;
+      map.addLayer(circle_112)
+
+      var circle_113 = L.circle([53.0889, 8.7906], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_113.bindPopup("https://indico.jacobs-university.de/");
+      circle_113._popup.options.maxWidth = 300;
+      map.addLayer(circle_113)
+
+      var circle_114 = L.circle([46.2324, 6.0502], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_114.bindPopup("https://indico-jacow.cern.ch");
+      circle_114._popup.options.maxWidth = 300;
+      map.addLayer(circle_114)
+
+      var circle_115 = L.circle([37.0736, -76.4936], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_115.bindPopup("https://www.jlab.org/indico/");
+      circle_115._popup.options.maxWidth = 300;
+      map.addLayer(circle_115)
+
+      var circle_116 = L.circle([56.7333, 37.1667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_116.bindPopup("https://indico-new.jinr.ru/index.py");
+      circle_116._popup.options.maxWidth = 300;
+      map.addLayer(circle_116)
+
+      var circle_117 = L.circle([56.7333, 37.1667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_117.bindPopup("https://indico-hlit.jinr.ru/");
+      circle_117._popup.options.maxWidth = 300;
+      map.addLayer(circle_117)
+
+      var circle_118 = L.circle([50.9253, 6.3627], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_118.bindPopup("https://indico-jsc.fz-juelich.de/");
+      circle_118._popup.options.maxWidth = 300;
+      map.addLayer(circle_118)
+
+      var circle_119 = L.circle([50.8796, 4.7009], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_119.bindPopup("https://iks32.fys.kuleuven.be/indico/index.py");
+      circle_119._popup.options.maxWidth = 300;
+      map.addLayer(circle_119)
+
+      var circle_120 = L.circle([37.57, 126.98], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_120.bindPopup("http://capp.kaist.ac.kr/indico/");
+      circle_120._popup.options.maxWidth = 300;
+      map.addLayer(circle_120)
+
+      var circle_121 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_121.bindPopup("http://www-sk.icrr.u-tokyo.ac.jp/indico/index.py");
+      circle_121._popup.options.maxWidth = 300;
+      map.addLayer(circle_121)
+
+      var circle_122 = L.circle([49.0047, 8.3858], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_122.bindPopup("http://indico.scc.kit.edu/indico");
+      circle_122._popup.options.maxWidth = 300;
+      map.addLayer(circle_122)
+
+      var circle_123 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_123.bindPopup("http://kds.kek.jp/");
+      circle_123._popup.options.maxWidth = 300;
+      map.addLayer(circle_123)
+
+      var circle_124 = L.circle([47.5, 19.0833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_124.bindPopup("http://indico.kfki.hu");
+      circle_124._popup.options.maxWidth = 300;
+      map.addLayer(circle_124)
+
+      var circle_125 = L.circle([50.45, 30.5233], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_125.bindPopup("http://hep.kinr.kiev.ua/indico/about.py");
+      circle_125._popup.options.maxWidth = 300;
+      map.addLayer(circle_125)
+
+      var circle_126 = L.circle([46.5873, 14.4007], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_126.bindPopup("https://conference.aau.at/");
+      circle_126._popup.options.maxWidth = 300;
+      map.addLayer(circle_126)
+
+      var circle_127 = L.circle([45.0159, -93.4719], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_127.bindPopup("https://indico.krithispcs.com");
+      circle_127._popup.options.maxWidth = 300;
+      map.addLayer(circle_127)
+
+      var circle_128 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_128.bindPopup("http://indico.rcapp.kyushu-u.ac.jp/indico/index.py");
+      circle_128._popup.options.maxWidth = 300;
+      map.addLayer(circle_128)
+
+      var circle_129 = L.circle([47.3667, 8.55], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_129.bindPopup("http://laguna.ethz.ch/indico/index.py");
+      circle_129._popup.options.maxWidth = 300;
+      map.addLayer(circle_129)
+
+      var circle_130 = L.circle([45.7667, 4.8833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_130.bindPopup("http://indico.lal.in2p3.fr");
+      circle_130._popup.options.maxWidth = 300;
+      map.addLayer(circle_130)
+
+      var circle_131 = L.circle([37.8668, -122.2536], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_131.bindPopup("https://indico.physics.lbl.gov/indico/index.py");
+      circle_131._popup.options.maxWidth = 300;
+      map.addLayer(circle_131)
+
+      var circle_132 = L.circle([39.0335, -77.4838], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_132.bindPopup("https://indico.legend-exp.org");
+      circle_132._popup.options.maxWidth = 300;
+      map.addLayer(circle_132)
+
+      var circle_133 = L.circle([38.7139, -9.1394], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_133.bindPopup("https://web.lip.pt/indico/");
+      circle_133._popup.options.maxWidth = 300;
+      map.addLayer(circle_133)
+
+      var circle_134 = L.circle([42.3646, -71.1028], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_134.bindPopup("http://indico.lns.mit.edu/indico/index.py");
+      circle_134._popup.options.maxWidth = 300;
+      map.addLayer(circle_134)
+
+      var circle_135 = L.circle([45.7667, 4.8833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_135.bindPopup("http://lpsc.in2p3.fr/Indico");
+      circle_135._popup.options.maxWidth = 300;
+      map.addLayer(circle_135)
+
+      var circle_136 = L.circle([55.7, 13.1833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_136.bindPopup("http://indico.esss.lu.se/indico/index.py");
+      circle_136._popup.options.maxWidth = 300;
+      map.addLayer(circle_136)
+
+      var circle_137 = L.circle([55.7, 13.1833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_137.bindPopup("http://indico.hep.lu.se/");
+      circle_137._popup.options.maxWidth = 300;
+      map.addLayer(circle_137)
+
+      var circle_138 = L.circle([50.0, 8.2711], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_138.bindPopup("https://indico.mitp.uni-mainz.de/");
+      circle_138._popup.options.maxWidth = 300;
+      map.addLayer(circle_138)
+
+      var circle_139 = L.circle([53.3331, -6.2489], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_139.bindPopup("https://conferences.matheo.si/index.py");
+      circle_139._popup.options.maxWidth = 300;
+      map.addLayer(circle_139)
+
+      var circle_140 = L.circle([48.2499, 11.6309], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_140.bindPopup("https://cas-events.mpe.mpg.de/indico");
+      circle_140._popup.options.maxWidth = 300;
+      map.addLayer(circle_140)
+
+      var circle_141 = L.circle([59.85, 17.6333], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_141.bindPopup("http://indico.uu.se/index.py");
+      circle_141._popup.options.maxWidth = 300;
+      map.addLayer(circle_141)
+
+      var circle_142 = L.circle([28.9667, -111.6667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_142.bindPopup("http://indico.nucleares.unam.mx/");
+      circle_142._popup.options.maxWidth = 300;
+      map.addLayer(circle_142)
+
+      var circle_143 = L.circle([48.15, 11.5833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_143.bindPopup("http://indico.mppmu.mpg.de/indico/index.py");
+      circle_143._popup.options.maxWidth = 300;
+      map.addLayer(circle_143)
+
+      var circle_144 = L.circle([48.2167, 20.3], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_144.bindPopup("http://indico.atomki.mta.hu/");
+      circle_144._popup.options.maxWidth = 300;
+      map.addLayer(circle_144)
+
+      var circle_145 = L.circle([50.8796, 4.7009], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_145.bindPopup("http://svs2015-mtm.icts.kuleuven.be/indico/");
+      circle_145._popup.options.maxWidth = 300;
+      map.addLayer(circle_145)
+
+      var circle_146 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_146.bindPopup("http://www2.hepl.phys.nagoya-u.ac.jp/indico/index.py");
+      circle_146._popup.options.maxWidth = 300;
+      map.addLayer(circle_146)
+
+      var circle_147 = L.circle([55.7522, 37.6156], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_147.bindPopup("http://indico.cfr.mephi.ru/");
+      circle_147._popup.options.maxWidth = 300;
+      map.addLayer(circle_147)
+
+      var circle_148 = L.circle([23.5, 121.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_148.bindPopup("https://indico.nsrrc.org.tw/");
+      circle_148._popup.options.maxWidth = 300;
+      map.addLayer(circle_148)
+
+      var circle_149 = L.circle([55.6761, 12.5683], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_149.bindPopup("https://indico.nbi.ku.dk/index.py");
+      circle_149._popup.options.maxWidth = 300;
+      map.addLayer(circle_149)
+
+      var circle_150 = L.circle([52.2333, 21.0167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_150.bindPopup("https://indico.ncbj.gov.pl/indico/index.py");
+      circle_150._popup.options.maxWidth = 300;
+      map.addLayer(circle_150)
+
+      var circle_151 = L.circle([-23.5477, -46.6358], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_151.bindPopup("https://indico.ncc.unesp.br/");
+      circle_151._popup.options.maxWidth = 300;
+      map.addLayer(circle_151)
+
+      var circle_152 = L.circle([41.7583, -74.0657], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_152.bindPopup("http://srs.newpaltz.edu/indico/index.py");
+      circle_152._popup.options.maxWidth = 300;
+      map.addLayer(circle_152)
+
+      var circle_153 = L.circle([47.4925, 19.0514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_153.bindPopup("https://conference.niif.hu/");
+      circle_153._popup.options.maxWidth = 300;
+      map.addLayer(circle_153)
+
+      var circle_154 = L.circle([47.4925, 19.0514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_154.bindPopup("https://biotechweb.nik.uni-obuda.hu/indico/index.py");
+      circle_154._popup.options.maxWidth = 300;
+      map.addLayer(circle_154)
+
+      var circle_155 = L.circle([52.3667, 4.9], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_155.bindPopup("http://agenda.nikhef.nl/");
+      circle_155._popup.options.maxWidth = 300;
+      map.addLayer(circle_155)
+
+      var circle_156 = L.circle([8.0, -2.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_156.bindPopup("https://events.nims.edu.gh/");
+      circle_156._popup.options.maxWidth = 300;
+      map.addLayer(circle_156)
+
+      var circle_157 = L.circle([29.6997, -95.5858], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_157.bindPopup("https://npymreg.com/");
+      circle_157._popup.options.maxWidth = 300;
+      map.addLayer(circle_157)
+
+      var circle_158 = L.circle([40.4165, -3.7026], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_158.bindPopup("http://147.96.27.42//index.py");
+      circle_158._popup.options.maxWidth = 300;
+      map.addLayer(circle_158)
+
+      var circle_159 = L.circle([50.2667, 19.0167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_159.bindPopup("http://h201.nuph.us.edu.pl/indico/index.py");
+      circle_159._popup.options.maxWidth = 300;
+      map.addLayer(circle_159)
+
+      var circle_160 = L.circle([48.8592, 2.3417], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_160.bindPopup("https://indico.obspm.fr/");
+      circle_160._popup.options.maxWidth = 300;
+      map.addLayer(circle_160)
+
+      var circle_161 = L.circle([48.15, 17.1167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_161.bindPopup("https://indico.openbrain.sk");
+      circle_161._popup.options.maxWidth = 300;
+      map.addLayer(circle_161)
+
+      var circle_162 = L.circle([48.2, 16.3667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_162.bindPopup("https://indico.smi.oeaw.ac.at/");
+      circle_162._popup.options.maxWidth = 300;
+      map.addLayer(circle_162)
+
+      var circle_163 = L.circle([33.6957, 73.0113], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_163.bindPopup("http://indico.ncp.edu.pk/indico/index.py");
+      circle_163._popup.options.maxWidth = 300;
+      map.addLayer(circle_163)
+
+      var circle_164 = L.circle([52.4167, 16.9667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_164.bindPopup("https://balsa.man.poznan.pl/indico/index.py");
+      circle_164._popup.options.maxWidth = 300;
+      map.addLayer(circle_164)
+
+      var circle_165 = L.circle([60.2229, 24.861], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_165.bindPopup("https://indico.physics.helsinki.fi/");
+      circle_165._popup.options.maxWidth = 300;
+      map.addLayer(circle_165)
+
+      var circle_166 = L.circle([47.4925, 19.0514], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_166.bindPopup("https://events.prace-ri.eu/");
+      circle_166._popup.options.maxWidth = 300;
+      map.addLayer(circle_166)
+
+      var circle_167 = L.circle([47.5294, 8.1974], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_167.bindPopup("https://indico.psi.ch/index.py");
+      circle_167._popup.options.maxWidth = 300;
+      map.addLayer(circle_167)
+
+      var circle_168 = L.circle([-26.7167, 27.1], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_168.bindPopup("http://fskbhe1.puk.ac.za/indico/index.py");
+      circle_168._popup.options.maxWidth = 300;
+      map.addLayer(circle_168)
+
+      var circle_169 = L.circle([51.5144, -0.0941], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_169.bindPopup("https://indico.ph.qmul.ac.uk/indico/index.py");
+      circle_169._popup.options.maxWidth = 300;
+      map.addLayer(circle_169)
+
+      var circle_170 = L.circle([40.8563, 14.2464], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_170.bindPopup("http://agenda.recas.unina.it/indico/");
+      circle_170._popup.options.maxWidth = 300;
+      map.addLayer(circle_170)
+
+      var circle_171 = L.circle([39.4698, -0.3774], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_171.bindPopup("http://www.e-ciencia.es/indico/index.py");
+      circle_171._popup.options.maxWidth = 300;
+      map.addLayer(circle_171)
+
+      var circle_172 = L.circle([35.69, 139.69], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_172.bindPopup("http://indico.riken.jp/indico/index.py");
+      circle_172._popup.options.maxWidth = 300;
+      map.addLayer(circle_172)
+
+      var circle_173 = L.circle([37.5985, 126.9783], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_173.bindPopup("http://indico.risp.re.kr/indico/index.py");
+      circle_173._popup.options.maxWidth = 300;
+      map.addLayer(circle_173)
+
+      var circle_174 = L.circle([-23.5477, -46.6358], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_174.bindPopup("http://indico.rnp.br/index.py");
+      circle_174._popup.options.maxWidth = 300;
+      map.addLayer(circle_174)
+
+      var circle_175 = L.circle([-33.9258, 18.4232], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_175.bindPopup("http://events.saip.org.za/index.py");
+      circle_175._popup.options.maxWidth = 300;
+      map.addLayer(circle_175)
+
+      var circle_176 = L.circle([42.9864, -78.7279], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_176.bindPopup("http://meetings.undergroundphysics.org/indico/index.py");
+      circle_176._popup.options.maxWidth = 300;
+      map.addLayer(circle_176)
+
+      var circle_177 = L.circle([-27.0, 133.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_177.bindPopup("https://conferences.maths.unsw.edu.au/");
+      circle_177._popup.options.maxWidth = 300;
+      map.addLayer(circle_177)
+
+      var circle_178 = L.circle([35.6961, 51.4231], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_178.bindPopup("https://indico.particles.ipm.ir/indico/");
+      circle_178._popup.options.maxWidth = 300;
+      map.addLayer(circle_178)
+
+      var circle_179 = L.circle([29.4889, -98.3987], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_179.bindPopup("https://indico.scrumalliance.org/");
+      circle_179._popup.options.maxWidth = 300;
+      map.addLayer(circle_179)
+
+      var circle_180 = L.circle([48.7667, 9.1833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_180.bindPopup("http://conference.simtech.uni-stuttgart.de/");
+      circle_180._popup.options.maxWidth = 300;
+      map.addLayer(circle_180)
+
+      var circle_181 = L.circle([46.8, 10.5167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_181.bindPopup("http://indico.sissa.it/");
+      circle_181._popup.options.maxWidth = 300;
+      map.addLayer(circle_181)
+
+      var circle_182 = L.circle([48.15, 17.1167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_182.bindPopup("https://indico.saske.sk/");
+      circle_182._popup.options.maxWidth = 300;
+      map.addLayer(circle_182)
+
+      var circle_183 = L.circle([40.482, -3.36], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_183.bindPopup("https://jemeuso.spas.uah.es/indico");
+      circle_183._popup.options.maxWidth = 300;
+      map.addLayer(circle_183)
+
+      var circle_184 = L.circle([50.8, 4.3167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_184.bindPopup("https://events.oma.be/indico/");
+      circle_184._popup.options.maxWidth = 300;
+      map.addLayer(circle_184)
+
+      var circle_185 = L.circle([29.6997, -95.5858], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_185.bindPopup("https://indico.skatelescope.org/index.py");
+      circle_185._popup.options.maxWidth = 300;
+      map.addLayer(circle_185)
+
+      var circle_186 = L.circle([37.57, 126.98], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_186.bindPopup("http://indico.sscc.uos.ac.kr/indico/");
+      circle_186._popup.options.maxWidth = 300;
+      map.addLayer(circle_186)
+
+      var circle_187 = L.circle([51.0, 9.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_187.bindPopup("http://indico.hpc-ch.org/indico/index.py");
+      circle_187._popup.options.maxWidth = 300;
+      map.addLayer(circle_187)
+
+      var circle_188 = L.circle([39.9117, 32.8403], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_188.bindPopup("http://tarla.org.tr/indico/");
+      circle_188._popup.options.maxWidth = 300;
+      map.addLayer(circle_188)
+
+      var circle_189 = L.circle([33.61, -101.8213], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_189.bindPopup("https://indico.ads.ttu.edu/");
+      circle_189._popup.options.maxWidth = 300;
+      map.addLayer(circle_189)
+
+      var circle_190 = L.circle([13.75, 100.4667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_190.bindPopup("https://indico.tint.or.th/");
+      circle_190._popup.options.maxWidth = 300;
+      map.addLayer(circle_190)
+
+      var circle_191 = L.circle([47.3667, 8.55], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_191.bindPopup("https://tcevents.chem.uzh.ch/");
+      circle_191._popup.options.maxWidth = 300;
+      map.addLayer(circle_191)
+
+      var circle_192 = L.circle([8.0, -2.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_192.bindPopup("https://ieeecassgh.knust.edu.gh/");
+      circle_192._popup.options.maxWidth = 300;
+      map.addLayer(circle_192)
+
+      var circle_193 = L.circle([20.0, 77.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_193.bindPopup("https://indico.tifr.res.in/indico/index.py");
+      circle_193._popup.options.maxWidth = 300;
+      map.addLayer(circle_193)
+
+      var circle_194 = L.circle([49.4635, -122.822], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_194.bindPopup("http://indico.triumf.ca");
+      circle_194._popup.options.maxWidth = 300;
+      map.addLayer(circle_194)
+
+      var circle_195 = L.circle([35.0, 105.0], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_195.bindPopup("http://166.111.32.59/indico/index.py");
+      circle_195._popup.options.maxWidth = 300;
+      map.addLayer(circle_195)
+
+      var circle_196 = L.circle([51.05, 13.75], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_196.bindPopup("http://webapp.biotec.tu-dresden.de/conferences/");
+      circle_196._popup.options.maxWidth = 300;
+      map.addLayer(circle_196)
+
+      var circle_197 = L.circle([48.2499, 11.6309], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_197.bindPopup("https://indico.ktas.ph.tum.de/");
+      circle_197._popup.options.maxWidth = 300;
+      map.addLayer(circle_197)
+
+      var circle_198 = L.circle([25.0392, 121.525], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_198.bindPopup("http://indico.twgrid.org/");
+      circle_198._popup.options.maxWidth = 300;
+      map.addLayer(circle_198)
+
+      var circle_199 = L.circle([38.4829, -121.6398], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_199.bindPopup("http://neutrino.physics.ucdavis.edu/indico/index.py");
+      circle_199._popup.options.maxWidth = 300;
+      map.addLayer(circle_199)
+
+      var circle_200 = L.circle([51.5, -0.13], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_200.bindPopup("http://indico.uknof.org.uk");
+      circle_200._popup.options.maxWidth = 300;
+      map.addLayer(circle_200)
+
+      var circle_201 = L.circle([50.8476, 4.3428], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_201.bindPopup("http://w3.iihe.ac.be/indico/index.py");
+      circle_201._popup.options.maxWidth = 300;
+      map.addLayer(circle_201)
+
+      var circle_202 = L.circle([48.2499, 11.6309], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_202.bindPopup("http://intern.universe-cluster.de/indico/index.py");
+      circle_202._popup.options.maxWidth = 300;
+      map.addLayer(circle_202)
+
+      var circle_203 = L.circle([4.6492, -74.0628], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_203.bindPopup("http://fisindico.uniandes.edu.co/indico/index.py");
+      circle_203._popup.options.maxWidth = 300;
+      map.addLayer(circle_203)
+
+      var circle_204 = L.circle([-22.9, -47.0833], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_204.bindPopup("https://eventos.ea2.unicamp.br/");
+      circle_204._popup.options.maxWidth = 300;
+      map.addLayer(circle_204)
+
+      var circle_205 = L.circle([60.393, 5.3242], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_205.bindPopup("http://indico.ift.uib.no/indico/index.py");
+      circle_205._popup.options.maxWidth = 300;
+      map.addLayer(circle_205)
+
+      var circle_206 = L.circle([55.9521, -3.1965], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_206.bindPopup("http://indico.ph.ed.ac.uk/indico/index.py");
+      circle_206._popup.options.maxWidth = 300;
+      map.addLayer(circle_206)
+
+      var circle_207 = L.circle([50.5833, 8.65], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_207.bindPopup("http://indico.uni-giessen.de/indico/index.py");
+      circle_207._popup.options.maxWidth = 300;
+      map.addLayer(circle_207)
+
+      var circle_208 = L.circle([21.3267, -157.8167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_208.bindPopup("http://www.phys.hawaii.edu/indico/index.py");
+      circle_208._popup.options.maxWidth = 300;
+      map.addLayer(circle_208)
+
+      var circle_209 = L.circle([40.1095, -88.2123], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_209.bindPopup("http://www.npl.illinois.edu/cipanp/index-2.html");
+      circle_209._popup.options.maxWidth = 300;
+      map.addLayer(circle_209)
+
+      var circle_210 = L.circle([53.4106, -2.9779], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_210.bindPopup("http://hep.ph.liv.ac.uk/indico/index.py");
+      circle_210._popup.options.maxWidth = 300;
+      map.addLayer(circle_210)
+
+      var circle_211 = L.circle([50.0, 8.2711], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_211.bindPopup("https://indico.mitp.uni-mainz.de/index.py");
+      circle_211._popup.options.maxWidth = 300;
+      map.addLayer(circle_211)
+
+      var circle_212 = L.circle([53.5041, -2.191], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_212.bindPopup("http://indico.hep.manchester.ac.uk/index.py");
+      circle_212._popup.options.maxWidth = 300;
+      map.addLayer(circle_212)
+
+      var circle_213 = L.circle([51.7136, 8.7554], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_213.bindPopup("http://rambaldo.uni-paderborn.de/indico/index.py");
+      circle_213._popup.options.maxWidth = 300;
+      map.addLayer(circle_213)
+
+      var circle_214 = L.circle([50.0833, 14.4667], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_214.bindPopup("http://kipl-indico.fjfi.cvut.cz/");
+      circle_214._popup.options.maxWidth = 300;
+      map.addLayer(circle_214)
+
+      var circle_215 = L.circle([40.4165, -3.7026], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_215.bindPopup("http://161.111.23.207/MaKaC/index.py");
+      circle_215._popup.options.maxWidth = 300;
+      map.addLayer(circle_215)
+
+      var circle_216 = L.circle([35.9901, -83.9622], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_216.bindPopup("http://qm09.phys.utk.edu/indico/index.py");
+      circle_216._popup.options.maxWidth = 300;
+      map.addLayer(circle_216)
+
+      var circle_217 = L.circle([46.065, 13.2587], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_217.bindPopup("http://agenda.fisica.uniud.it/difa/index.py");
+      circle_217._popup.options.maxWidth = 300;
+      map.addLayer(circle_217)
+
+      var circle_218 = L.circle([47.6606, -122.2919], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_218.bindPopup("http://www.npl.washington.edu/indico/index.py");
+      circle_218._popup.options.maxWidth = 300;
+      map.addLayer(circle_218)
+
+      var circle_219 = L.circle([43.0761, -89.4104], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_219.bindPopup("http://agenda.hep.wisc.edu/index.py");
+      circle_219._popup.options.maxWidth = 300;
+      map.addLayer(circle_219)
+
+      var circle_220 = L.circle([46.1956, 6.1481], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_220.bindPopup("https://reg.unog.ch/");
+      circle_220._popup.options.maxWidth = 300;
+      map.addLayer(circle_220)
+
+      var circle_221 = L.circle([28.6, 77.2], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_221.bindPopup("http://indico.vecc.gov.in/indico/index.py");
+      circle_221._popup.options.maxWidth = 300;
+      map.addLayer(circle_221)
+
+      var circle_222 = L.circle([37.1791, -80.3515], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_222.bindPopup("http://indico.phys.vt.edu/index.py");
+      circle_222._popup.options.maxWidth = 300;
+      map.addLayer(circle_222)
+
+      var circle_223 = L.circle([51.5, -0.13], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_223.bindPopup("http://indico.wacren.net/");
+      circle_223._popup.options.maxWidth = 300;
+      map.addLayer(circle_223)
+
+      var circle_224 = L.circle([31.5, 34.75], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_224.bindPopup("http://www.weizmann.ac.il/MaKaC/index.py");
+      circle_224._popup.options.maxWidth = 300;
+      map.addLayer(circle_224)
+
+      var circle_225 = L.circle([41.3081, -72.9282], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_225.bindPopup("http://indico.wlab.yale.edu/indico/");
+      circle_225._popup.options.maxWidth = 300;
+      map.addLayer(circle_225)
+
+      var circle_226 = L.circle([50.0833, 19.9167], 500, {
+                            color: '#2e8ece',
+                            fillColor: '#2e8ece',
+                            fillOpacity: 1.0
+                            });
+      circle_226.bindPopup("http://bryza.if.uj.edu.pl/indico/index.py");
+      circle_226._popup.options.maxWidth = 300;
+      map.addLayer(circle_226)
+
+
+
+
+
+
+
+
+
+
+var autobounds = L.featureGroup([circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226, circle_226]).getBounds()
+
+
+
+
+
+map.fitBounds(autobounds,
+    {"padding": [10, 10]}
+);
+
+   map.setZoom(5);
+
+   var count = 0;
+
+   setTimeout(function() {
+    map.zoomOut(2);
+    count++;
+   }, 3000);
+
+   </script>
+
+</body>
