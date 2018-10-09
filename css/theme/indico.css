@@ -354,6 +354,10 @@ html.darken-bg .slide-background.present::after {
   color: #d42b2b;
 }
 
+.reveal .white {
+  color: #fff;
+}
+
 .reveal .smaller {
   font-size: 0.8em;
 }
